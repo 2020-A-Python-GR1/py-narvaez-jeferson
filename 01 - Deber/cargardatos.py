@@ -1,6 +1,38 @@
 import json
-
+def imprimir_cancion(cancion_seleccionada):
+    print(f"""
+    Cancion seleccionada:
+    Id :{cancion_seleccionada['index']})
+    Nombre :{cancion_seleccionada['nombre_cancion']}
+    Autor/Banda :{cancion_seleccionada['autor_cancion']}
+    Genero :{cancion_seleccionada['genero']}
+    Acordes :{cancion_seleccionada['acordes']}
+    """) 
+def set_cancion(index):
     
+    print("Ingrese el nombre de la canción")
+    nombre_cancion=input()
+    print("Ingrese el autor de la cancion")
+    autor_cancion=input()
+    print("Ingrese el genero o generos de la cancion")
+    genero=input()
+    print("Ingrese las canciones separadas por una coma (,)")
+    acordes_string=input()
+    acordes=acordes_string.split(",")
+    cancion_nueva = {'index' : index, 'nombre_cancion' : nombre_cancion,'autor_cancion':autor_cancion,'genero': genero,'acordes': acordes }
+    return cancion_nueva
+def last_index():
+    canciones=cargar_datos()
+    l_index=canciones[-1]['index']
+    return l_index
+def guardar_datos(canciones):
+    try:
+        path="./01 - Deber/datos.json"
+        archivo_abierto=open(path,'w')
+        lineas=json.dump(canciones,archivo_abierto)
+        print("Cancion agregada")
+    except:
+        print("Error leyendo archivo")
 def cargar_datos():
     try:
         path="./01 - Deber/datos.json"
@@ -39,19 +71,17 @@ def menu_principal():
         
         return menu_principal()
     def agregar_cancion():
-        return "Agregar cancion"
+        lista=cargar_datos()
+        
+        cancion_nueva = set_cancion(int(last_index()+1))
+        lista.append(cancion_nueva)
+        guardar_datos(lista)
+        return listar_canciones()
     def escoger_cancion():
         print("Ingrese el id de la cancion que desea seleccionar")
         id=int(input())
         cancion_seleccionada=seleccionar_cancion(id) 
-        print(f"""
-        Cancion seleccionada:
-        Id :{cancion_seleccionada['index']})
-        Nombre :{cancion_seleccionada['nombre_cancion']}
-        Autor/Banda :{cancion_seleccionada['autor_cancion']}
-        Genero :{cancion_seleccionada['genero']}
-        Acordes :{cancion_seleccionada['acordes']}
-        """)   
+        
         return menu_cancion(cancion_seleccionada)
     def salir():
         return print("salir")
@@ -65,6 +95,7 @@ def menu_principal():
         return opciones[eleccion]()
     return devolver_respuesta()
 def menu_cancion(cancion):
+    imprimir_cancion(cancion)
     print("Menu canción:")
     print("Porfavor seleccione una opción");
     print("""
@@ -73,9 +104,21 @@ def menu_cancion(cancion):
     [V]olver menu principal""")
     eleccion=input().upper()
     def eliminar_cancion():
-        return "Eliminar cancion"
+        print("Esta seguro que desa eliminar la canción? (S/N)")
+        confirmar=input().upper()
+        if confirmar == "S":
+            index=cancion['index']
+            lista=cargar_datos();
+            lista.pop(index)
+            guardar_datos(lista);
+        return menu_principal()
     def modificar_cancion():
-        return "Modificar cancion"
+        lista=cargar_datos()
+        index=cancion['index']
+        cancion_modificar=set_cancion(int(index))
+        lista[index]=cancion_modificar
+        guardar_datos(lista)
+        return menu_principal()
     
     def volver_al_menu():
         return menu_principal()
