@@ -132,5 +132,3 @@ def menu_cancion(cancion):
     return devolver_respuesta()
 
 menu_principal()
-
-
