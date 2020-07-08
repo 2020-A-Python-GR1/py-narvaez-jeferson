@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 [
     {    
     "index": 0,
@@ -25,3 +26,6 @@
     ]
     }
 ]
+=======
+[{"index": 0, "nombre_cancion": "Rara Bien", "autor_cancion": "Rupatrupa", "genero": "Easy listening", "acordes": ["Am", "Bm", "Fm", "Bb"]}, {"index": 1, "nombre_cancion": "Kids", "autor_cancion": "MGMT", "genero": "Pop", "acordes": ["F#m", "Am", "Sim", "G"]}, {"index": 2, "nombre_cancion": "The kill", "autor_cancion": "Jared Leto", "genero": "No se", "acordes": ["Am", " Bm", " Gm", "F7"]}]
+>>>>>>> Stashed changes
