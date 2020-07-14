@@ -1,8 +1,14 @@
 import json
-
-    
-<<<<<<< Updated upstream
-=======
+def imprimir_cancion(cancion_seleccionada):
+    print(f"""
+    Cancion seleccionada:
+    Id :{cancion_seleccionada['index']})
+    Nombre :{cancion_seleccionada['nombre_cancion']}
+    Autor/Banda :{cancion_seleccionada['autor_cancion']}
+    Genero :{cancion_seleccionada['genero']}
+    Acordes :{cancion_seleccionada['acordes']}
+    """)
+def set_cancion(index):
     print("Ingrese el nombre de la canción")
     nombre_cancion=input()
     print("Ingrese el autor de la cancion")
@@ -42,7 +48,7 @@ def guardar_datos(canciones):
         print("Cancion agregada")
     except:
         print("Error leyendo archivo")
->>>>>>> Stashed changes
+
 def cargar_datos():
     try:
         path="./01 - Deber/datos.json"
@@ -127,10 +133,6 @@ def menu_cancion(cancion):
     def eliminar_cancion():
         return "Eliminar cancion"
     def modificar_cancion():
-<<<<<<< Updated upstream
-        return "Modificar cancion"
-    
-=======
         lista=cargar_datos()
         index=cancion['index']
         cancion_modificar=set_cancion(int(index))
@@ -151,7 +153,7 @@ def menu_cancion(cancion):
         lista[index]=cancion_modificar
         guardar_datos(lista)
         return menu_cancion(cancion_modificar)
->>>>>>> Stashed changes
+
     def volver_al_menu():
         return menu_principal()
     def devolver_respuesta():
