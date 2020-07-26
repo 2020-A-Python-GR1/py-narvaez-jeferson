@@ -7,6 +7,7 @@ def imprimir_cancion(cancion_seleccionada):
     Autor/Banda :{cancion_seleccionada['autor_cancion']}
     Genero :{cancion_seleccionada['genero']}
     Acordes :{cancion_seleccionada['acordes']}
+
     """) 
 def set_cancion(index):
     
@@ -33,6 +34,8 @@ def guardar_datos(canciones):
         print("Cancion agregada")
     except:
         print("Error leyendo archivo")
+
+
 def cargar_datos():
     try:
         path="./01 - Deber/datos.json"
@@ -119,7 +122,23 @@ def menu_cancion(cancion):
         lista[index]=cancion_modificar
         guardar_datos(lista)
         return menu_principal()
-    
+
+    def editar_acordes():
+        lista=cargar_datos()
+        index=cancion['index']
+        cancion_modificar=set_acordes(int(index),cancion)
+        lista[index]=cancion_modificar
+        guardar_datos(lista)
+        return menu_cancion(cancion_modificar)
+    def eliminar_acordes():
+        lista=cargar_datos()
+        index=cancion['index']
+        cancion_modificar=set_eliminar_acordes(int(index),cancion)
+        lista[index]=cancion_modificar
+        guardar_datos(lista)
+        return menu_cancion(cancion_modificar)
+
+
     def volver_al_menu():
         return menu_principal()
     def devolver_respuesta():
