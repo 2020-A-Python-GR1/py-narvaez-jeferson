@@ -97,7 +97,7 @@ res_ser_16=len(ser_16[ser_16=='a'])
 
 np.random.RandomState(100)
 ser_17 = pd.Series(np.random.randint(1, 5, [12]))
-
+#Este no acabe
 
 ## 18) ¿Como transformar una serie de un arreglo de numpy a un DataFrame con un `shape` definido?
 
@@ -105,6 +105,7 @@ ser_17 = pd.Series(np.random.randint(1, 5, [12]))
 
 ser_18 = pd.Series(np.random.randint(1, 10, 35))
 #shape(7,5)
+#Este no acabe
 
 ## 19) ¿Obtener los valores de una serie conociendo la posicion por indice?
 
