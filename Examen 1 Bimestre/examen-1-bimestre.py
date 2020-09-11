@@ -11,6 +11,7 @@ print(vector_zeros)
 print("Ejericio 3")
 vector_zeros[5]=1
 print(vector_zeros)
+
 ## 4) Cambiar el orden de un vector de 50 elementos, el de la posicion 1 es el de la 50 etc.
 print("Ejericio 4")
 arreglo_ej4=np.arange(50)
