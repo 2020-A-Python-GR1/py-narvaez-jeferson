@@ -15,8 +15,8 @@ df = pd.read_pickle(path_guardado)
 
 # loc
 
-# primero = df.loc[1035]
-# segundo = df.loc[1035, 'artist']
+primero = df.loc[1035]
+segundo = df.loc[1035, 'artist']
 
 filtrado_horizontal = df.loc[1035] # Serie
 print(filtrado_horizontal)

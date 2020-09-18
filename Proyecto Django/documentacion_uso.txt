@@ -1,0 +1,14 @@
+django-admin startproject Heladeria para crearel proyecto
+python  manage.py migrate apra que funcione con sqllite3
+python manage.py runserver para levantar el servidor
+python manage.py startapp HeladeriaApp
+la nomenclatura de . de django tiene este orden Diccionario->Atributo->Metodo->Indice para hacer llamadas
+osea que si quiero usar un metodo se usa directamente con . sin ()
+Hay que tener cuidado con los espacios al hacer programar en el template
+{%i f logged == True %} asi esta bien
+{%i f logged==True %} asi esta mal
+aqui se pueden ver los filtros https://docs.djangoproject.com/en/3.0/ref/templates/builtins/
+Para el proyecto usaremos boostrap 5 que no usa jquery
+https://v5.getbootstrap.com/docs/5.0/components/alerts/
+https://docs.djangoproject.com/en/3.1/topics/http/urls/
+
